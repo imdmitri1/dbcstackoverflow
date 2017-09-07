@@ -15,6 +15,8 @@ post '/questions' do
   if @question.save
     redirect '/questions'
   else
+    status 422
+    @errors = @question.errors.full_messages
     erb :'/questions/new'
   end
 end
@@ -38,6 +40,8 @@ put '/questions/:id' do
   if @question.save
     redirect '/questions'
   else
+    status 422
+    @errors = @question.errors.full_messages
     erb :'questions/edit'
   end
 end
@@ -46,7 +50,7 @@ end
 # Delete
 
 delete '/questions/:id' do
-  @question = Qustion.find(params[:id])
+  @question = Question.find(params[:id])
   @question.destroy
   redirect '/questions'
 end

@@ -1,0 +1,6 @@
+<h1>Create New Answer</h1>
+<form action="/questions/<%= @question.id %>/answers" method="POST">
+<label for="answer_body">Answer Body</label>
+<input type="textarea" name="answer_body" placeholder="body" id="answer_body">
+<input type="submit" value="Post Answer">
+</form>

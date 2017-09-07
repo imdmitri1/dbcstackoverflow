@@ -1,7 +1,8 @@
 get '/' do
-  redirect '/index'
+  redirect '/questions'
 end
 
 get '/index' do
-  erb :index
+  redirect '/questions'
 end
+

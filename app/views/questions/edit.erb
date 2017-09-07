@@ -1,0 +1,10 @@
+<h1>Edit Question Form</h1>
+<form action="/questions/<%= @question.id %>" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  <label for="title">Title</label>
+  <input type="text" name="question[title]" placeholder="<%= @question.title %>" id= "title">
+  <label for="Body">Question Body</label>
+  <input type="text" name="question[question_body]" placeholder="<%= @question.question_body %>" id="body">
+  <input type="submit" value="Update Question">
+</form>
+

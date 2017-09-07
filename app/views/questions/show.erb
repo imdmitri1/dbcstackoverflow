@@ -1,0 +1,34 @@
+<h1>Question: <%= @question.title %></h1>
+  <p><%= @question.question_body %></p>
+
+
+<h2>Question Comments</h2>
+  <ul>
+<% @questions.comments.each do |comment| %>
+  <li>
+    <%= comment.comment_body %>
+    Author: <%= comment.commenter %>
+  </li>
+<% end %>
+</ul>
+
+
+<h1>Answers</h1>
+<ul>
+<% @questions.answers.each do |answer| %>
+  <li>
+    <%= answer.answer_body %>
+    Author: <%= answer.answerer %>
+  </li>
+<% end %>
+</ul>
+
+<h2>Answer Comments<h2>
+<ul>
+<% @questions.answers.comments.each do |comment| %>
+  <li>
+    <%= comment.comment_body %>
+    Author: <%= comment.commenter %>
+  </li>
+<% end %>
+</ul>

@@ -1,6 +1,6 @@
 10.times do
   namee = Faker::Internet.user_name
-  User.create(name: namee, email: Faker::Internet.email('namee'), password: "password")
+  User.create(name: namee, email: Faker::Internet.email(namee), password: "password")
 end
 
 20.times do

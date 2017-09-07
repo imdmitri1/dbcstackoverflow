@@ -1,3 +1,4 @@
+
 <h1>Edit Answer</h1>
 <form action="/questions/<%= @question.id %>/answers" method="POST">
 <input type="hidden" name="_method" value="PUT">
@@ -5,4 +6,6 @@
 <input type="textarea" name="answer_body" value="<%= answer.answer_body %>" id="answer_body">
 <input type="submit" value="Update Answer">
 </form>
+
+
 

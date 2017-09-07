@@ -1,6 +1,9 @@
 <h1>Question: <%= @question.title %></h1>
   <p><%= @question.question_body %></p>
 
+<form action="/questions/<%= @question.id %>" method="DELETE">
+  <input type="submit" value="Delete Question">
+</form>
 
 <h2>Question Comments</h2>
   <ul>

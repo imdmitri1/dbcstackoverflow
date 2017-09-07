@@ -3,5 +3,4 @@ class Question < ActiveRecord::Base
   validates :title, length: { maximum: 64 }
 
   belongs_to :author_id, class_name: "User"
-  # comment
 end

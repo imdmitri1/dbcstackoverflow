@@ -5,5 +5,3 @@ end
 get '/index' do
   redirect '/questions'
 end
-
-# comment

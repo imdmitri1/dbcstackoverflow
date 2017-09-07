@@ -5,6 +5,5 @@ class CreateQuestions < ActiveRecord::Migration[5.1]
     t.integer :author_id
 
     t.timestamps
-    # comment
   end
 end

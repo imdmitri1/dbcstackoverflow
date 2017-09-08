@@ -2,8 +2,11 @@
 <p><%= @question.question_body %></p>
 
 <% if current_user && current_user.id == @question.author_id %>
+<form action="/questions/<%= @question.id %>/edit" method="GET">
+  <input type="submit" value="Edit Question">
+</form>
 <form action="/questions/<%= @question.id %>" method="POST">
-  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Question">
 </form>
 <% end %>
@@ -16,6 +19,8 @@
     <%= comment.comment_body %>
     <strong>Author: <%= comment.commenter.name %></strong>
     <% if current_user && current_user.id == comment.commenter_id %>
+    <a href="/comments/<%= comment.id %>/edit">Edit Comment</a>
+
       <form action="/comments/<%= comment.id %>" method="POST">
         <input type="hidden" name="_method" value="delete">
         <input type="hidden" name="question_id" value= "<%= @question.id %>">

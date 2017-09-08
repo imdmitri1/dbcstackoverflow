@@ -1,6 +1,6 @@
 # Index
 get '/questions' do
-  @questions = Question.all
+  @questions = Question.all.order("created_at")
   erb :'/questions/index'
 end
 

@@ -5,6 +5,7 @@ class CreateQuestions < ActiveRecord::Migration[5.1]
       t.string :question_body, { null: false }
       t.integer :author_id
       t.integer :views, default: 0
+      t.integer :best_answer_by_author
 
       t.timestamps
     end

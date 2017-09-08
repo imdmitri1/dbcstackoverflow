@@ -4,7 +4,7 @@
   <label for="title">Title</label>
   <input type="text" name="question[title]" value="<%= @question.title %>" id= "title">
   <label for="Body">Question Body</label>
-  <input type="text" name="question[question_body]" value="<%= @question.question_body %>" id="body">
+  <input type="textarea" name="question[question_body]" value="<%= @question.question_body %>" id="body">
   <input type="submit" value="Update Question">
 </form>
 

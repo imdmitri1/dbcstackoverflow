@@ -9,6 +9,6 @@ class Question < ActiveRecord::Base
   validates :title, length: { maximum: 256 }
 
   def add_view_count
-    self.views +=1
+    self.views += 1
   end
 end

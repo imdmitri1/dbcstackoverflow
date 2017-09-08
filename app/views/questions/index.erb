@@ -2,10 +2,10 @@
 <div class="questions-list">
     <% @questions.each do |question| %>
       <article>
-        <h2><%= question.title %></h2>
+        <h5><a href="/questions/<%=question.id%>"><%= question.title %></a></h5>
           <p>
-            <span><%= question.author %></span>
-            <span><%= question.votes.sum %></span>
+            <span><%= question.author.name %></span>
+            <span><%= question.votes.total_value %></span>
           </p>
       </article>
     <% end %>

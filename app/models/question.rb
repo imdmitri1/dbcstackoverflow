@@ -7,7 +7,7 @@ class Question < ActiveRecord::Base
 
   validates :title, :question_body, { presence: true }
   validates :title, length: { maximum: 256 }
-
+  validates :title, uniqueness: true
   def add_view_count
     self.views += 1
   end

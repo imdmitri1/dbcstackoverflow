@@ -1,10 +1,13 @@
+
+
+
 10.times do
   namee = Faker::Internet.user_name
   User.create(name: namee, email: Faker::Internet.email(namee), password: "password")
 end
 
 20.times do
-  Question.create(title: Faker::Hacker.say_something_smart, question_body: Faker::Hipster.paragraphs, author_id: rand(1..10))
+  Question.create!(title: Faker::Hacker.say_something_smart, question_body: Faker::Hipster.paragraphs, author_id: rand(1..10))
 end
 
 200.times do

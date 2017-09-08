@@ -1,17 +1,32 @@
 body {
 }
 
-nav {
-  border-top: 3px solid #F48024;
+.nav {
   width: 100%;
-  margin-top: 0px;
+  border-top: 3px solid #F48024;
+  background-color: #fafafb;
   position: fixed;
   height: 50px;
-  background-color: #fafafb;
+  color: #242729;
+  box-shadow: 0 1px 0 rgba(12,13,14,0.15), 0 0 0 transparent, 0 0 0 transparent, 0 0 0 transparent;
+}
+.search {
+  display: inline-block;
+
+}
+
+nav {
+  max-width: 70%;
+  /*margin-top: 0px;*/
+  margin: 0 auto;
 }
 
 .content {
   margin: 0 auto;
   max-width: 70%;
   padding-top: 50px;
+}
+
+a {
+  text-decoration: none;
 }

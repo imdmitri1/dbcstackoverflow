@@ -7,7 +7,7 @@
 end
 
 20.times do
-  Question.create!(title: Faker::Hacker.say_something_smart, question_body: Faker::Hipster.paragraphs, author_id: rand(1..10))
+  Question.create!(title: Faker::Hacker.say_something_smart, question_body: Faker::Hipster.paragraph(2), author_id: rand(1..10))
 end
 
 200.times do

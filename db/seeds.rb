@@ -15,9 +15,9 @@ end
 end
 
 400.times do
-  Comment.create(commentable_type: ["question", "answer"].sample, commentable_id: rand(1..20), comment_body: Faker::Hacker.say_something_smart, commenter_id: rand(1..10))
+  Comment.create(commentable_type: ["Question", "Answer"].sample, commentable_id: rand(1..20), comment_body: Faker::Hacker.say_something_smart, commenter_id: rand(1..10))
 end
 
 400.times do
-  Vote.create(votable_type: ["comment", "question", "answer"].sample, votable_id: rand(1..400), voter_id: rand(1..10), value: [1, -1].sample )
+  Vote.create(votable_type: ["Comment", "Question", "Answer"].sample, votable_id: rand(1..20), voter_id: rand(1..10), value: [1, -1].sample )
 end

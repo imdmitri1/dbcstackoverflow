@@ -30,3 +30,11 @@ nav {
 a {
   text-decoration: none;
 }
+
+#question-answers {
+  background: grey;
+}
+
+#answer-comments {
+  background: aqua;
+}

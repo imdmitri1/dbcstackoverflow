@@ -8,6 +8,13 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :email, :h_password
   validates_uniqueness_of :email
 
+  # def profile_picture
+      # Pseudo: when the user is instantiated (?) the user
+        # profile picture could be set to Faker::Avatar.image
+        # by default (mostly b/c we don't have option to add img)
+      # Something to this effect, anyway.
+  # end
+
   def password
     @password ||= BCrypt::Password.new(h_password)
   end

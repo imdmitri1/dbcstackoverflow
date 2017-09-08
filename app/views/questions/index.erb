@@ -6,6 +6,8 @@
           <p>
             <span><%= question.author.name %></span>
             <span><%= question.votes.total_value %></span>
+            <a href="/upvotes/Question/<%=question.id%>">UP</a>
+            <a href="/downvotes/Question/<%=question.id%>">down</a>
           </p>
       </article>
     <% end %>

@@ -5,7 +5,12 @@
         <h3><a href="/questions/<%=question.id%>"><%= question.title %></a></h3>
           <p>
             <span><%= question.author.name %></span>
-            <span><%= question.votes.total_value %></span>
+            <div><%= question.votes.total_value %> votes</div>
+            <div><%=question.views %> views</div>
+            <div><%=question.answers.count%> answers</div>
+
+
+
             <form action="/upvotes/Question/<%=question.id%>" method="post">
               <input type="submit" value="UP">
             </form>

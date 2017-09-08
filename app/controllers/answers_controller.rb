@@ -41,7 +41,7 @@ end
 
 # Delete
 
-delete '/questions/question_id/answers/:id' do
+delete '/questions/:question_id/answers/:id' do
   @question = Question.find(params[:question_id])
   @answer = @question.answers.find(params[:id])
   @answer.destroy

@@ -11,7 +11,7 @@
   <% @question.comments.each do |comment| %>
   <li>
     <%= comment.comment_body %>
-    Author: <%= comment.commenter %>
+    <strong>Author: <%= comment.commenter.name %></strong>
   </li>
   <% end %>
 </ul>
@@ -20,21 +20,22 @@
 <h1>Answers</h1>
 <ul>
   <% @question.answers.each do |answer| %>
-  <li>
-    <%= answer.answer_body %>
-    Author: <%= answer.answerer.name %>
-  </li>
-    <% if answer.comments %>
-    <% answer.comments.each do |comment| %>
-    <li>
-      <%= comment.comment_body %>
-      Author: <%= comment.commenter %>
+    <li id="question-answers">
+      <%= answer.answer_body %>
+      <strong> Author: <%= answer.answerer.name %> </strong>
     </li>
+      <% if answer.comments %>
+      <ul>
+      <% answer.comments.each do |comment| %>
+      <li id="answer-comments">
+        <%= comment.comment_body %>
+        <strong> Author: <%= comment.commenter.name %> </strong>
+      </li>
+      <% end %>
+    </ul>
     <% end %>
-  </ul>
-  <% end %>
   <% end %>
 </ul>
 
-<h2>Answer Comments<h2>
-  <ul>
+
+

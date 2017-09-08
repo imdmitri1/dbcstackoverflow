@@ -29,3 +29,11 @@ put '/comments/:commentable_type/:commentable_id' do
     erb :'comments/edit'
   end
 end
+
+delete '/comments/:comment_id' do
+  p params
+  comment = Comment.find(params[:comment_id])
+  question_id = params[:question_id]
+  comment.destroy
+  redirect "/questions/#{question_id}"
+end

@@ -1,9 +1,12 @@
 <h1>Question: <%= @question.title %></h1>
 <p><%= @question.question_body %></p>
 
-<form action="/questions/<%= @question.id %>" method="DELETE">
+<% if current_user && current_user.id == @question.author_id %>
+<form action="/questions/<%= @question.id %>" method="POST">
+  <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete Question">
 </form>
+<% end %>
 
 <h2>Question Comments</h2>
 <ul>
@@ -12,6 +15,13 @@
   <li>
     <%= comment.comment_body %>
     <strong>Author: <%= comment.commenter.name %></strong>
+    <% if current_user && current_user.id == comment.commenter_id %>
+      <form action="/comments/<%= comment.id %>" method="POST">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="question_id" value= "<%= @question.id %>">
+        <input type="submit" value="Delete Comment">
+      </form>
+    <% end %>
   </li>
   <% end %>
 </ul>
@@ -23,6 +33,13 @@
     <li id="question-answers">
       <%= answer.answer_body %>
       <strong> Author: <%= answer.answerer.name %> </strong>
+      <% if current_user && current_user.id == answer.answerer_id %>
+      <form action="/questions/<%= @question.id %>/answers/<%= answer.id %>" method="POST">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="question_id" value= "<%= @question.id %>">
+        <input type="submit" value="Delete Answer">
+      </form>
+    <% end %>
     </li>
       <% if answer.comments %>
       <ul>
@@ -30,6 +47,13 @@
       <li id="answer-comments">
         <%= comment.comment_body %>
         <strong> Author: <%= comment.commenter.name %> </strong>
+        <% if current_user && current_user.id == comment.commenter_id %>
+          <form action="/comments/<%= comment.id %>" method="POST">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="question_id" value= "<%= @question.id %>">
+            <input type="submit" value="Delete Comment">
+          </form>
+       <% end %>
       </li>
       <% end %>
     </ul>

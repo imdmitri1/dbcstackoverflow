@@ -18,16 +18,26 @@
   <title></title>
 </head>
 <body>
-  <% if current_user %>
+  <nav>
+    <a href="/questions">Questions</a>
+    <a href="/">Developers Jobs</a>
+    <a href="/">Documentation</a>
+    <a href="/">Tags</a>
+    <a href="/users">Users</a>
+    <input>
+    <% if current_user %>
     <a href="/profile">Profile</a>
     <form action="/sessions" method="post">
       <input type="hidden" name="_method" value="delete">
       <input type="submit" value="logout">
     </form>
-  <% else %>
-  <a href="/sessions/new">Login</a>
-  <a href="/users/new">Register</a>
-  <% end %>
-  <%= yield %>
+    <% else %>
+      <a href="/sessions/new">Login</a>
+      <a href="/users/new">Register</a>
+    <% end %>
+  </nav>
+  <div class="content">
+    <%= yield %>
+  </div>
 </body>
 </html>

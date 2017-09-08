@@ -31,7 +31,6 @@ put '/comments/:commentable_type/:commentable_id' do
 end
 
 delete '/comments/:comment_id' do
-  p params
   comment = Comment.find(params[:comment_id])
   question_id = params[:question_id]
   comment.destroy

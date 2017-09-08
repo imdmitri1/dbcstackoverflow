@@ -1,5 +1,6 @@
 <h1>Question: <%= @question.title %></h1>
 <p><%= @question.question_body %></p>
+<p>Question author: <%= @question.author.name %></p>
 
 <% if current_user && current_user.id == @question.author_id %>
 <form action="/questions/<%= @question.id %>/edit" method="GET">

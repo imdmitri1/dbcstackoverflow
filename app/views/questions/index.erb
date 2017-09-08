@@ -6,6 +6,12 @@
           <p>
             <span><%= question.author.name %></span>
             <span><%= question.votes.total_value %></span>
+            <form action="/upvotes/Question/<%=question.id%>" method="post">
+              <input type="submit" value="UP">
+            </form>
+            <form action="/downvotes/Question/<%=question.id%>" method="post">
+              <input type="submit" value="DOWN">
+            </form>
           </p>
       </article>
     <% end %>

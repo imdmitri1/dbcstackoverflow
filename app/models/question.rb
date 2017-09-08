@@ -6,4 +6,8 @@ class Question < ActiveRecord::Base
   has_many :votes, as: :votable
   has_many :comments, as: :commentable
   has_many :answers
+
+  def self.add_view_count
+    self.views +=1
+  end
 end

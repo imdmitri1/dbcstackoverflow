@@ -15,9 +15,5 @@ post '/users' do
 end
 
 get '/profile' do
-  if current_user
     erb :'users/profile'
-  else
-    redirect '/sessions/new'
-  end
 end

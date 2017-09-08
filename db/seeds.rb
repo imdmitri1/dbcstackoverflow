@@ -1,9 +1,6 @@
-
-
-
 10.times do
   namee = Faker::Internet.user_name
-  User.create(name: namee, email: Faker::Internet.email(namee), password: "password")
+  User.create(name: namee, email: Faker::Internet.email(namee), password: "password", user_photo: Faker::Avatar.image)
 end
 
 20.times do
@@ -19,5 +16,7 @@ end
 end
 
 400.times do
-  Vote.create(votable_type: ["Comment", "Question", "Answer"].sample, votable_id: rand(1..20), voter_id: rand(1..10), value: [1, -1].sample )
+  Vote.create(votable_type: ["Comment", "Question", "Answer"].sample, votable_id: rand(1..20), voter_id: rand(1..10), value: [1,1,1, -1].sample )
 end
+
+

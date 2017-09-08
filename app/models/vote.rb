@@ -6,6 +6,5 @@ class Vote < ActiveRecord::Base
 
   def self.total_value
     self.all.map(&:value).reduce(:+)
-    # self.all.sum(:value)
   end
 end

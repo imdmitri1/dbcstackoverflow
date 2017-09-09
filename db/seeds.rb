@@ -32,7 +32,7 @@ end
 
 300.times do
   Vote.create(votable_type: "Question", votable_id: rand(183..213), voter_id: rand(234..264), value: [1,1,1, -1].sample )
-en
+end
 
 300.times do
   Vote.create(votable_type: "Answer", votable_id: rand(591..680), voter_id: rand(234..264), value: [1,1,1, -1].sample )

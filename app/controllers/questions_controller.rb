@@ -1,7 +1,8 @@
 # Index
 get '/questions' do
-  @questions = Question.all.order("created_at")
-  @hot_questions = @questions.select { |question| question.vote_count > 10 }
+  ques= Question.all.order("created_at")
+  @questions = ques.paginate(:page => params[:page], :per_page => 10)
+  @hot_questions = ques.select { |question| question.vote_count > 10 }
   erb :'/questions/index'
 end
 

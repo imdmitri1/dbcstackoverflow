@@ -173,3 +173,31 @@ a:visited:hover {
   font-style: bold;
 }
 
+/*Pagination style*/
+
+.pagination {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  /*position: absolute;*/
+  /*display: inline;*/
+ }
+
+/* profile style */
+
+.user-profile-picture {
+  float: left;
+  /*border: 1px solid #bababa;*/
+}
+
+.profile-stats {
+  margin-top: 100px;
+  clearfix: left;
+  line-height: 2em;
+  font-size: 1.2em;
+}
+
+.profile-stats h1 {
+  margin-bottom: 55px;
+}
+

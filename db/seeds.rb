@@ -1,3 +1,5 @@
+require 'faker'
+
 User.create(name: "dbc", email: "dbc@none.none", password: "password", user_photo: Faker::Avatar.image)
 
 

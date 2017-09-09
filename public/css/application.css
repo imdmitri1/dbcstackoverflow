@@ -1,4 +1,6 @@
+/* layout:*/
 body {
+  cursor: default;
 }
 
 .nav {
@@ -12,18 +14,30 @@ body {
 }
 .search {
   display: inline-block;
+}
 
+input[value="Logout"] {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: -webkit-link;
+    /*cursor: auto;*/
+}
+
+nav * {
+  display: inline-block;
 }
 
 nav {
-  max-width: 70%;
+  max-width: 85%;
   /*margin-top: 0px;*/
   margin: 0 auto;
 }
 
 .content {
   margin: 0 auto;
-  max-width: 70%;
+  max-width: 85%;
   padding-top: 50px;
 }
 
@@ -31,10 +45,131 @@ a {
   text-decoration: none;
 }
 
-#question-answers {
-  background: RebeccaPurple;
+.ad-bar {
+  float: right;
+  height: 100%;
+  max-width: 310px;
 }
 
-#answer-comments {
-  background: aqua;
+.questions-list  {
+  margin-right: 320px;
 }
+
+.votes-main {
+  margin-top: 5px;
+  display: block;
+  float: left;
+  height: 100%;
+  text-align: center;
+
+}
+.votes-main span {
+  font-size: 1.5em;
+
+}
+
+.question-view-stat {
+  margin-top: 4px;
+
+}
+
+.question-main {
+  border-top: 1px solid #bababa;
+  display: inline-block;
+  padding: 5px;
+
+}
+
+
+.votes-float {
+  margin-left: 70px;
+}
+
+.votes-float h4 {
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.q-preview-main {
+  font-size: 0.8em;
+  margin:;
+}
+
+a:link {
+    color: #07C;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #005999;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #00A5DD;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited:hover {
+    color: #005999;
+  }
+/*a:active {
+    color: #09C;
+    background-color: transparent;
+    text-decoration: none;
+}*/
+
+
+.author-main {
+  float: right;
+  width: 175px;
+  padding-bottom: 10px;
+  margin-top: -15px;
+}
+
+.author-main span {
+  display: block;
+  font-size: .8em;
+  margin-right: 5px;
+}
+
+.author-pic-small img{
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  float: left;
+  border: 1px solid #bababa;
+  margin-right: 5px;
+}
+
+/*.author-stats {
+  padding: 20px;
+}*/
+
+.author-created-at {
+  color: gray;
+}
+
+.hot-list li {
+  font-size: 0.8em;
+  margin-right: 20px;
+  padding: 5px;
+}
+
+.hot-list h4 {
+  margin-left: 40px;
+}
+
+/*Show Page Styling*/
+.show-float {
+  margin-top: 30px;
+  margin-right: 10px;
+  padding: 2px;
+}
+
+.question-vote-count {
+  font-style: bold;
+}
+

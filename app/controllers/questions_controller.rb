@@ -1,6 +1,7 @@
 # Index
 get '/questions' do
   @questions = Question.all.order("created_at")
+  @hot_questions = @questions.select { |question| question.vote_count > 10 }
   erb :'/questions/index'
 end
 

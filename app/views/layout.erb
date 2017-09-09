@@ -29,10 +29,10 @@
         <input type="text" placeholder="Search">
       </form>
       <% if current_user %>
-      <a href="/profile">Profile</a>
+      <a href="/profile/<%= current_user.id %>">Profile</a>
       <form action="/sessions" method="post">
         <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="logout">
+        <input type="submit" value="Logout">
       </form>
       <% else %>
       <a href="/sessions/new">Login</a>

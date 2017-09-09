@@ -1,11 +1,8 @@
+<div class="user-profile-picture"><img src="<%=@user.user_photo%>" alt="profile picture"></div>
+<h1 id="user-profile-name"><%= @user.name %> </h3>
 
-<h3>Hi, <%= current_user.name %> </h3>
+<!-- <p><span id="user-profile-stat-list">Here are #%= @user.name %>'s statistics:</span></p> -->
 
-
-<div class="user-profile-picture"><img src="<%=current_user.user_photo%>" alt="profile picture"></div>
-
-<p><span id="user-profile-stat-list">Here are your statistics:</span></p>
-
-    <div><span>You posted <strong><%= current_user.questions.count %></strong> questions</span></div>
-    <div><span>You answered <strong><%= current_user.answers.count %></strong> questions</span></div>
-    <div><span>You've commented on other users' posts <strong><%= Comment.all.where(commenter_id: current_user).count %></strong> times!</span></div>
+    <div><span>They posted <strong><%= @user.questions.count %></strong> questions</span></div>
+    <div><span>They answered <strong><%= @user.answers.count %></strong> questions</span></div>
+    <div><span>They've commented on other users' posts <strong><%= Comment.all.where(commenter_id: @user).count %></strong> times!</span></div>

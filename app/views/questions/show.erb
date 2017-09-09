@@ -1,16 +1,44 @@
-<h1>Question: <%= @question.title %></h1>
-<p><%= @question.question_body %></p>
-<p>Question author: <%= @question.author.name %></p>
+<div class="question-main">
 
-<% if current_user && current_user.id == @question.author_id %>
-<form action="/questions/<%= @question.id %>/edit" method="GET">
-  <input type="submit" value="Edit Question">
-</form>
-<form action="/questions/<%= @question.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Question">
-</form>
-<% end %>
+  <div class="votes-main show-float">
+    <form action="/upvotes/Question/<%=@question.id%>" method="post">
+        <input type="submit" value="UP">
+    </form>
+    <div><span class="question-vote-count"><%= @question.votes.total_value %></span></div>
+    <form action="/downvotes/Question/<%=@question.id%>" method="post">
+      <input type="submit" value="DOWN">
+    </form>
+  </div>
+
+
+  <div class="votes-float">
+    <h1>Question: <%= @question.title %></h1>
+    <p><%= @question.question_body %></p>
+    <div class="author-main">
+      <div class="author-pic-small">
+        <a href="/profile/<%= @question.author.id %>" alt="user profile"><img src="<%= @question.author.user_photo %>"></a></div>
+        <span class="author-stats"><a href="/profile/<%= @question.author.id %>" alt="user profile"><%= @question.author.name %></a></span>
+        <span class="author-stats"><%= @question.author.questions.count %> questions</span>
+        <span class="author-stats"><%= @question.author.answers.count %> answers</span>
+      </div>
+    </div>
+    <% if current_user %>
+    <% else %>
+      <div><%= @question.votes.total_value %> votes</div>
+    <% end %>
+  </div>
+</div>
+
+  <% if current_user && current_user.id == @question.author_id %>
+  <form action="/questions/<%= @question.id %>/edit" method="GET">
+    <input type="submit" value="Edit Question">
+  </form>
+  <form action="/questions/<%= @question.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Question">
+  </form>
+  <% end %>
+
 
 <h2>Question Comments</h2>
 <ul>
@@ -22,11 +50,11 @@
     <% if current_user && current_user.id == comment.commenter_id %>
     <a href="/comments/<%= comment.id %>/edit">Edit Comment</a>
 
-      <form action="/comments/<%= comment.id %>" method="POST">
-        <input type="hidden" name="_method" value="delete">
-        <input type="hidden" name="question_id" value= "<%= @question.id %>">
-        <input type="submit" value="Delete Comment">
-      </form>
+    <form action="/comments/<%= comment.id %>" method="POST">
+      <input type="hidden" name="_method" value="delete">
+      <input type="hidden" name="question_id" value= "<%= @question.id %>">
+      <input type="submit" value="Delete Comment">
+    </form>
     <% end %>
   </li>
   <% end %>
@@ -36,34 +64,52 @@
 <h1>Answers</h1>
 <ul>
   <% @question.answers.each do |answer| %>
-    <li id="question-answers">
-      <%= answer.answer_body %>
+  <li id="question-answers">
+    <%= answer.answer_body %>
+    <div>
+      <span>answered on <%=Date.strptime("#{answer.created_at}")  %></span>
       <strong> Author: <%= answer.answerer.name %> </strong>
-      <% if current_user && current_user.id == answer.answerer_id %>
-      <form action="/questions/<%= @question.id %>/answers/<%= answer.id %>" method="POST">
+    </div>
+    <% if current_user %>
+    <form action="/upvotes/Answer/<%=answer.id%>" method="post">
+      <input type="submit" value="UP">
+    </form>
+    <div><%= answer.votes.total_value %> votes</div>
+    <form action="/downvotes/Answer/<%=answer.id%>" method="post">
+      <input type="submit" value="DOWN">
+    </form>
+    <% else %>
+    <div><%= answer.votes.total_value %> votes</div>
+    <% end %>
+
+    <% if current_user && current_user.id == answer.answerer_id %>
+    <form action="/questions/<%= @question.id %>/answers/<%= answer.id %>" method="POST">
+      <input type="hidden" name="_method" value="delete">
+      <input type="hidden" name="question_id" value= "<%= @question.id %>">
+      <input type="submit" value="Delete Answer">
+    </form>
+    <% end %>
+  </li>
+  <% if answer.comments %>
+  <ul>
+    <% answer.comments.each do |comment| %>
+    <li id="answer-comments">
+      <%= comment.comment_body %>
+      <div>
+        <span>added on <%=Date.strptime("#{comment.created_at}")  %></span>
+        <strong> Author: <%= comment.commenter.name %> </strong>
+      </div>
+      <% if current_user && current_user.id == comment.commenter_id %>
+      <form action="/comments/<%= comment.id %>" method="POST">
         <input type="hidden" name="_method" value="delete">
         <input type="hidden" name="question_id" value= "<%= @question.id %>">
-        <input type="submit" value="Delete Answer">
+        <input type="submit" value="Delete Comment">
       </form>
-    <% end %>
-    </li>
-      <% if answer.comments %>
-      <ul>
-      <% answer.comments.each do |comment| %>
-      <li id="answer-comments">
-        <%= comment.comment_body %>
-        <strong> Author: <%= comment.commenter.name %> </strong>
-        <% if current_user && current_user.id == comment.commenter_id %>
-          <form action="/comments/<%= comment.id %>" method="POST">
-            <input type="hidden" name="_method" value="delete">
-            <input type="hidden" name="question_id" value= "<%= @question.id %>">
-            <input type="submit" value="Delete Comment">
-          </form>
-       <% end %>
-      </li>
       <% end %>
-    </ul>
+    </li>
     <% end %>
+  </ul>
+  <% end %>
   <% end %>
 </ul>
 

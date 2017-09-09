@@ -40,7 +40,7 @@ put '/questions/:id' do
   @question = Question.find(params[:id])
   @question.update_attributes(params[:question])
   if @question.save
-    redirect '/questions'
+    redirect "/questions/#{@question.id}"
   else
     status 422
     @errors = @question.errors.full_messages

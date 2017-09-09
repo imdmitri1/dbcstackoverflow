@@ -17,6 +17,12 @@
             <form action="/downvotes/Question/<%=question.id%>" method="post">
               <input type="submit" value="DOWN">
             </form>
+            <% if current_user && current_user.id == question.author_id %>
+              <form action="/questions/<%= question.id %>" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="submit" value="Delete Question">
+              </form>
+            <% end %>
           </p>
       </article>
     <% end %>

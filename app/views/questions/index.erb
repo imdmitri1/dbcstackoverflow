@@ -1,7 +1,17 @@
 <h1>All questions</h1>
 
 <div class="ad-bar">
- <img src="add1.jpg" alt="AD" >
+ <a href="https://azure.microsoft.com/en-us/free/?OCID=AID624663_OLA_201115356_90752458" target="_blank"> <img src="add1.jpg" alt="AD" ></a>
+
+ <a href="https://stackoverflow.com/jobs?med=site-ui&ref=jobs-tab" target="_blank"> <img src="jobs.png" alt="AD" ></a>
+   <div class="hot-list">
+     <h4>Hot Questions</h4>
+      <ul>
+        <% @hot_questions.each do |question| %>
+        <li><a href="/questions/<%= question.id %>"><%= question.title %></a></li>
+        <% end %>
+      </ul>
+  </div>
 </div>
 
 <% if current_user %>
@@ -19,13 +29,13 @@
       <div class="question-view-stat"><small> <%=question.views %>  views</small></div>
     </div>
     <div class="votes-float">
-      <h4><a href="/questions/<%=question.id%>"><%= question.title %></a></h4>
+      <h4><a href="/questions/<%=question.id%>"><%= question.title %><%=["?","??","???"].sample%> </a></h4>
       <div class="q-preview-main"><%=question.question_body[0..150] %>... </div>
       <p>
         <div class="author-main">
           <span class="author-created-at">asked on <%=Date.strptime("#{question.created_at}")  %></span>
           <div class="author-pic-small">
-            <img src="<%= question.author.user_photo %>"></div>
+            <a href="/profile/<%= question.author.id %>" alt="user profile"><img src="<%= question.author.user_photo %>"></a></div>
             <span class="author-stats"><a href="/profile/<%= question.author.id %>" alt="user profile"><%= question.author.name %></a></span>
             <span class="author-stats"><%= question.author.questions.count %> questions</span>
             <span class="author-stats"><%= question.author.answers.count %> answers</span>

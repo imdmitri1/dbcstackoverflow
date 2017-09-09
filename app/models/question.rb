@@ -11,4 +11,8 @@ class Question < ActiveRecord::Base
   def add_view_count
     self.views += 1
   end
+
+  def vote_count
+    self.votes.count
+  end
 end

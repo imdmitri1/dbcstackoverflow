@@ -1,5 +1,6 @@
 /* layout:*/
 body {
+  cursor: default;
 }
 
 .nav {
@@ -56,6 +57,7 @@ a {
 .ad-bar {
   float: right;
   height: 100%;
+  max-width: 310px;
 }
 
 .questions-list  {
@@ -159,6 +161,15 @@ a:visited:hover {
   color: gray;
 }
 
+.hot-list li {
+  font-size: 0.8em;
+  margin-right: 20px;
+  padding: 5px;
+}
+
+.hot-list h4 {
+  margin-left: 40px;
+}
 
 
 

@@ -1,3 +1,4 @@
+/* layout:*/
 body {
 }
 
@@ -12,18 +13,30 @@ body {
 }
 .search {
   display: inline-block;
+}
 
+input[value="Logout"] {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: -webkit-link;
+    /*cursor: auto;*/
+}
+
+nav * {
+  display: inline-block;
 }
 
 nav {
-  max-width: 70%;
+  max-width: 85%;
   /*margin-top: 0px;*/
   margin: 0 auto;
 }
 
 .content {
   margin: 0 auto;
-  max-width: 70%;
+  max-width: 85%;
   padding-top: 50px;
 }
 
@@ -31,6 +44,7 @@ a {
   text-decoration: none;
 }
 
+/*...*/
 #question-answers {
   background: RebeccaPurple;
 }
@@ -38,3 +52,91 @@ a {
 #answer-comments {
   background: aqua;
 }
+
+.ad-bar {
+  float: right;
+  height: 100%;
+}
+
+.questions-list  {
+  margin-right: 320px;
+}
+
+.votes-main {
+  margin-top: 13px;
+  display: block;
+  float: left;
+  height: 100%;
+  text-align: center;
+
+}
+.votes-main span {
+  font-size: 1.5em;
+
+}
+
+.question-main {
+  border: 1px solid grey;
+  display: inline-block;
+  padding: 5px;
+
+}
+
+.author-main {
+  float: right;
+}
+
+.votes-float {
+  margin-left: 70px;
+}
+
+.q-preview-main {
+  font-size: 0.8em;
+}
+
+
+
+a:link {
+    color: #07C;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #005999;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #00A5DD;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited:hover {
+    color: #005999;
+  }
+/*a:active {
+    color: #09C;
+    background-color: transparent;
+    text-decoration: none;
+}*/
+
+.author-main span {
+  display: block;
+  font-size: .8em;
+}
+
+.author-pic-small img{
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
+
+
+
+
+
+

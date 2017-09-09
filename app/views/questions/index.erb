@@ -1,29 +1,44 @@
-<h1>Questions</h1>
-<div class="questions-list">
-    <% @questions.each do |question| %>
-      <article>
-        <h3><a href="/questions/<%=question.id%>"><%= question.title %></a></h3>
-          <p>
-            <!-- <span><#%= question.author.name %></span> -->
-            <div><%= question.votes.total_value %> votes</div>
-            <div><%=question.views %> views</div>
-            <div><%=question.answers.count%> answers</div>
+<h1>All questions</h1>
 
-
-
-            <form action="/upvotes/Question/<%=question.id%>" method="post">
-              <input type="submit" value="UP">
-            </form>
-            <form action="/downvotes/Question/<%=question.id%>" method="post">
-              <input type="submit" value="DOWN">
-            </form>
-            <% if current_user && current_user.id == question.author_id %>
-              <form action="/questions/<%= question.id %>" method="POST">
-                <input type="hidden" name="_method" value="DELETE">
-                <input type="submit" value="Delete Question">
-              </form>
-            <% end %>
-          </p>
-      </article>
-    <% end %>
+<div class="ad-bar">
+ <img src="add1.jpg" alt="AD" >
 </div>
+
+<% if current_user %>
+<div class="ask-button"><a href="/"> Ask Question </a></div>
+<% else %>
+<div class="ask-button"><a href="/session/new"> Ask Question </a></div>
+<% end %>
+
+<div class="questions-list">
+  <% @questions.each do |question| %>
+  <article class="question-main">
+    <div class="votes-main">
+      <div><span> <%= question.votes.total_value %></span><br><small> votes</small></div>
+      <div><span> <%=question.answers.count%></span><br><small> answers</small></div>
+      <div><small> <%=question.views %>  views</small></div>
+    </div>
+    <div class="votes-float">
+      <h4><a href="/questions/<%=question.id%>"><%= question.title %></a></h4>
+      <div class="q-preview-main"><%=question.question_body[0..150] %>... </div>
+      <p>
+        <div class="author-main">
+          <span>asked on <%=Date.strptime("#{question.created_at}")  %></span>
+          <div class="author-pic-small">
+            <img src="<%= question.author.user_photo %>"></div>
+            <span><a href="/users/<%= question.author.id %>" alt="user profile"><%= question.author.name %></a></span>
+            <span><%= question.author.questions.count %> questions</span>
+            <span><%= question.author.answers.count %> answers</span>
+          </div>
+          <% if current_user && current_user.id == question.author_id %>
+          <form action="/questions/<%= question.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete Question">
+          </form>
+          <% end %>
+        </p>
+      </div>
+    </article>
+    <% end %>
+  </div>
+

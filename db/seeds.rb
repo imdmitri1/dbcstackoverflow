@@ -15,7 +15,7 @@ User.create(name: "dbc", email: "dbc@none.none", password: "password", user_phot
 end
 
 31.times do
-  Question.create!(title: Faker::Hacker.say_something_smart, question_body: Faker::Hipster.paragraph(rand(4..15)), author_id: rand(1..30))
+  Question.create!(title: Faker::Hacker.say_something_smart, question_body: Faker::Hipster.paragraph(rand(4..15)), author_id: rand(1..31))
 end
 
 90.times do
@@ -30,10 +30,10 @@ end
   Comment.create(commentable_type: "Answer", commentable_id: rand(1..90), comment_body: Faker::Hacker.say_something_smart, commenter_id: rand(1..31))
 end
 
-500.times do
+300.times do
   Vote.create(votable_type: "Question", votable_id: rand(1..31), voter_id: rand(1..31), value: [1,1,1, -1].sample )
 end
 
-500.times do
+300.times do
   Vote.create(votable_type: "Answer", votable_id: rand(1..31), voter_id: rand(1..31), value: [1,1,1, -1].sample )
 end

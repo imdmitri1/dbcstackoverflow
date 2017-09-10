@@ -15,6 +15,7 @@ gem 'rake'
 gem 'shotgun', '~>0.9.1'
 # gem 'readline'
 gem 'faker'
+gem 'will_paginate', '~> 3.1.0'
 
 group :test do
   gem 'shoulda-matchers'

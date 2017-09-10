@@ -20,28 +20,37 @@
 <body>
   <div class="nav">
     <nav>
-      <a href="/questions">Questions</a>
-      <a href="/">Developers Jobs</a>
-      <a href="/">Documentation</a>
-      <a href="/">Tags</a>
-      <a href="/users">Users</a>
-      <form action="/" method="get" class="search">
+      <ul>
+      <li><a href="/questions">Questions</a></li>
+      <li><a href="/">Developers Jobs</a></li>
+      <li><a href="/">Documentation</a></li>
+      <li><a href="/">Tags</a></li>
+      <li><a href="/users">Users</a></li>
+      <li><form action="/" method="get" class="search">
         <input type="text" placeholder="Search">
-      </form>
+      </form></li>
       <% if current_user %>
-      <a href="/profile/<%= current_user.id %>">Profile</a>
-      <form action="/sessions" method="post">
+      <li><a href="/profile/<%= current_user.id %>">Profile</a></li>
+      <li><form action="/sessions" method="post">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Logout">
-      </form>
+      </form></li>
       <% else %>
-      <a href="/sessions/new">Login</a>
-      <a href="/users/new">Register</a>
+      <li><a href="/sessions/new">Login</a></li>
+      <li><a href="/users/new">Register</a></li>
       <% end %>
+      </ul>
     </nav>
   </div>
+
   <div class="content">
     <%= yield %>
+  </div>
+
+  <div class="footer">
+    <footer >
+      <strong>DBC project by Dan, Dmitri, Ida and Sam. September 2017</strong>
+    </footer>
   </div>
 </body>
 </html>

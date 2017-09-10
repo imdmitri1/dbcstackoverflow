@@ -17,12 +17,21 @@ body {
 }
 
 input[value="Logout"] {
-    background: none;
+    background-color: inherit;
+    color: #666;
     border: none;
     padding: 0;
     font: inherit;
-    color: -webkit-link;
-    /*cursor: auto;*/
+    text-align: center;
+    margin-top: 0px;
+    padding: 15px;
+}
+input[value="Logout"]:hover {
+  background-color: #ddd;
+}
+
+.search {
+  padding: 13px;
 }
 
 nav * {
@@ -31,7 +40,6 @@ nav * {
 
 nav {
   max-width: 85%;
-  /*margin-top: 0px;*/
   margin: 0 auto;
 }
 
@@ -39,6 +47,7 @@ nav {
   margin: 0 auto;
   max-width: 85%;
   padding-top: 50px;
+  min-height: 1500px;
 }
 
 a {
@@ -173,3 +182,73 @@ a:visited:hover {
   font-style: bold;
 }
 
+/*Pagination style*/
+
+.pagination {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  /*position: absolute;*/
+  /*display: inline;*/
+ }
+
+/* profile style */
+
+.user-profile-picture {
+  float: left;
+  /*border: 1px solid #bababa;*/
+}
+
+.profile-stats {
+  margin-top: 100px;
+  clearfix: left;
+  line-height: 2em;
+  font-size: 1.2em;
+}
+
+.profile-stats h1 {
+  margin-bottom: 55px;
+}
+
+.footer {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #242729;
+  color: #FFF;
+  margin-bottom: 0;
+  text-align: left;
+  padding-left: 8%;
+}
+/*nav buttons*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: #4CAF50;
+}

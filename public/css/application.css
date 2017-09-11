@@ -36,16 +36,18 @@ input[value="Logout"]:hover {
 
 nav * {
   display: inline-block;
+  margin: 0 auto;
 }
 
 nav {
   max-width: 85%;
   margin: 0 auto;
+  min-width: 1050px;
 }
 
 .content {
   margin: 0 auto;
-  max-width: 85%;
+  max-width: 1050px;
   padding-top: 50px;
   min-height: 1500px;
 }
@@ -171,16 +173,6 @@ a:visited:hover {
   margin-left: 40px;
 }
 
-/*Show Page Styling*/
-.show-float {
-  margin-top: 30px;
-  margin-right: 10px;
-  padding: 2px;
-}
-
-.question-vote-count {
-  font-style: bold;
-}
 
 /*Pagination style*/
 
@@ -252,3 +244,35 @@ li a.active {
     color: white;
     background-color: #4CAF50;
 }
+
+/*Show Page Styling*/
+.show-float {
+  margin-top: 30px;
+  margin-right: 10px;
+  padding: 2px;
+}
+
+.question-vote-count {
+  font-style: bold;
+}
+
+.comments-show {
+  font-size: .7em;
+  margin-left: 70px;
+}
+
+/*strong .q-c-show {
+  float: right;
+}*/
+
+.question-answers-show {
+  padding: 30px;
+}
+
+.answers-show {
+
+}
+
+
+/***********/
+

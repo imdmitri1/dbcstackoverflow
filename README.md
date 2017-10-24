@@ -4,6 +4,7 @@
 * Built in Sinatra (RESTfull)
 * Deployed to Heroku
 
+
 ![main page](public/Screenshot.png)
 
 ### To run it localy
@@ -14,3 +15,5 @@
 5.  `bundle exec rake db:seed`
 6.  `bundle exec shotgun config.ru`
 7.  Open [http://localhost:9393](http://localhost:9393)
+
+##### P.S. Disable adBlock to see full functionality!
